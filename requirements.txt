@@ -3,4 +3,8 @@ fastapi
 pandas
 joblib
 functools
-
+gunicorn
+uvloop
+httptools
+lightgbm
+scikit-learn
