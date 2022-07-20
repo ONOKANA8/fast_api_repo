@@ -1,0 +1,54 @@
+# mise en place de FastAPI
+
+# importation des librairies
+import joblib
+import pandas as pd
+import uvicorn
+from fastapi import FastAPI
+from functools import lru_cache
+
+
+# chargement du data_test
+#@lru_cache
+def data():
+    path = r"D:\fichier_api\fichier-test1000-api.csv"
+    data = pd.read_csv(path).drop("Unnamed: 0", axis=1)
+
+    # chargement du modèle entrainé
+    path_ = r"D:\fichier_api\joblib_lgbm0_Model.pkl"
+    model = joblib.load(path_)
+
+    # complétion de data_test avec score, class_bin et class_cat
+
+    score = 100 * model.predict_proba(data.copy(deep=True).iloc[:, :-1])[:, 1]
+    class_bin = model.predict(data.iloc[:, :-1])
+
+    class_cat = []
+    for i in class_bin:
+        if i == 0.0:
+            class_cat.append("accepted")
+        else:
+            class_cat.append("refused")
+
+    data["score"] = score
+    data["class_bin"] = class_bin
+    data["class_cat"] = class_cat
+
+    return data
+
+
+app = FastAPI()  # définition de notre application
+
+
+# lecture de données, (racine : "/credit")
+@app.get("/credit")
+async def credit(ID: int):
+    """Fonction de classification d'instance en entrant que l'identifiant 'SK_ID_CURR'"""
+
+    data_id = data()[data()["SK_ID_CURR"] == ID]
+
+    return [{"score": data_id.score.values[0]}, {"statut": data_id.class_cat.values[0]}]
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='127.0.0.7', port=8000)
