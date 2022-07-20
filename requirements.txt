@@ -2,7 +2,6 @@ uvicorn
 fastapi
 pandas
 joblib
-functools
 gunicorn
 uvloop
 httptools
