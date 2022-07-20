@@ -5,11 +5,9 @@ import joblib
 import pandas as pd
 import uvicorn
 from fastapi import FastAPI
-from functools import lru_cache
 
 
 # chargement du data_test
-#@lru_cache
 def data():
     path = r"D:\fichier_api\fichier-test1000-api.csv"
     data = pd.read_csv(path).drop("Unnamed: 0", axis=1)
