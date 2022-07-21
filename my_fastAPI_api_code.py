@@ -3,17 +3,16 @@
 # importation des librairies
 import joblib
 import pandas as pd
-import uvicorn
 from fastapi import FastAPI
 
 
 # chargement du data_test
 def data():
-    path = r"D:\fichier_api\fichier-test1000-api.csv"
+    path = "fichier_api/fichier-test1000-api.csv"
     data = pd.read_csv(path).drop("Unnamed: 0", axis=1)
 
     # chargement du modèle entrainé
-    path_ = r"D:\fichier_api\joblib_lgbm0_Model.pkl"
+    path_ = "fichier_api/joblib_lgbm0_Model.pkl"
     model = joblib.load(path_)
 
     # complétion de data_test avec score, class_bin et class_cat
@@ -47,6 +46,3 @@ async def credit(ID: int):
 
     return [{"score": data_id.score.values[0]}, {"statut": data_id.class_cat.values[0]}]
 
-
-if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.7', port=8000)
