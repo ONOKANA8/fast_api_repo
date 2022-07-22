@@ -5,8 +5,8 @@ import joblib
 import pandas as pd
 from fastapi import FastAPI
 import streamlit as st
-
 # chargement du data_test
+
 @st.cache(allow_output_mutation=True)
 def data():
     path = "fichier_api/fichier-test1000-api.csv"
@@ -42,8 +42,8 @@ app = FastAPI()  # définition de notre application
 @app.get("/credit")
 async def credit(ID: int):
     """Fonction de classification d'instance en entrant que l'identifiant 'SK_ID_CURR'"""
-    if ID not in data.SK_ID_CURR.values:
-        print("ERREUR IDENTIFIANT: Veuillez saisir un identifiant client correct")
+    if ID not in data().SK_ID_CURR.values:
+        return {"ERREUR IDENTIFIANT: Veuillez saisir un identifiant client correct"}
 
     else:
         data_id = data()[data()["SK_ID_CURR"] == ID]
