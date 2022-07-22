@@ -7,3 +7,4 @@ uvloop
 httptools
 lightgbm
 scikit-learn
+streamlit
