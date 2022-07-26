@@ -13,9 +13,10 @@ Vous trouverez ici la description des fichiers contenus dans le dossier **fichie
 | fichier-test1000-api.csv | C'est un fichier test de 1000 individus issue de données initiales de jeu de test ayant subi l'étape de preprocessing. il contient les variables indépendantes.                                                                                                                                                  |                                                                                                                                |
 
 
-## Installation de Streamlit
+## Installation de FastAPI
 Dans votre notebook ou un éditeur de code comme **PyCharm Community Edition** , vous pouvez installer fastapi avec
-la commmande **pip install fastapi**
+la commmande **pip install fastapi** 
+Puis Importer FastAPI via fastapi
  
 
 ## Rôle implicite du code my_fastAPI_api_code.py
