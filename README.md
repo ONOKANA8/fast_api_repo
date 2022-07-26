@@ -1,5 +1,66 @@
-# fastapi
-----------------------------------------
-m_fastAPI_api_code.py | représente le code de déploiement de modèle ML dans le web qui servira pour le déploiement de
-l'application sur Heroku
+# FastAPI tutoriel 
 
+Bonjour :wave:, et bienvenue dans ce projet de construction d'api:  **FastAPI**.
+
+Il s'agit ici d"une description des fichiers de ce projet dans le but d'une meilleur compréhension 
+de leur utilisation.
+
+Vous trouverez ici la description des fichiers contenus dans le dossier **fichier_api** et leur différentes utilités.
+
+| Nom fichier              | Description                                                                                                                                                                                                                                                                                                      |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| joblib_lgbm0_Model.pkl   | C'est le modèle prédctif conçu en interne pour prédire les défauts de paiement obtenu après sauvegarde via la librairie joblib                                                                                                                                                                                   |                                                                                                                                                                                                                                |
+| fichier-test1000-api.csv | C'est un fichier test de 1000 individus issue de données initiales de jeu de test ayant subi l'étape de preprocessing. il contient les variables indépendantes.                                                                                                                                                  |                                                                                                                                |
+
+
+## Installation de Streamlit
+Dans votre notebook ou un éditeur de code comme **PyCharm Community Edition** , vous pouvez installer fastapi avec
+la commmande **pip install fastapi**
+ 
+
+## Rôle implicite du code my_fastAPI_api_code.py
+
+my_fastAPI_api_code.py représente le code de déploiement de modèle de Machine de Learning dans le web qui servira pour
+le déploiement de l'application sur Heroku.
+
+Ce code permet de calculer les scores de défaut de paiement en local comme sur le web, c'est un moyen aussi simple
+de déployer un modèle de prédiction.
+
+Il permet en outre à l'application my_streamlit_dashboard_code.py de récupérer d'une façon simpliste les valeurs
+calculées pour un client donné.
+
+Ce code a également nécessité la création de méthode **GET** avec pour racine "/credit" ==> @app.get("/credit") avec 
+app = FastAPI()
+
+
+## Exécution de FastAPI
+
+Avec PyCharm par exemple, vous pouvez l'exécuter en local en tapant la commande : 
+
+-en local : ajouter à la suite du code API
+                        if __name__ == "__main__":
+                            uvicorn.run(app, host='127.0.0.7', port=8000)
+            exécuter tout simplement avec **run**
+
+
+## Déploiement sur Heroku
+Pour un déploiement efficace sur le cloud Heroku, d'autres fichiers sont réquis en plus du code d'application .py:
+
+
+| Nom fichier      | Description                                                                                                                                                                                                                          |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| requirements.txt | Fichier contenant toutes les librairies utile. au bon fonctionnement de l'application                                                                                                                                                |                                                                                                                                                          |
+| Procfile         | Procfile spécifie à peu près les commandes une fois que vous exécutez l'application sur Heroku. Nous spécifions le fichier shell que nous avons créé ci-dessus, puis appelons Streamlit pour exécuter my_streamlit_dashboard_code.py |
+
+Pour étoffer vos connaissances dans le déploiement de votre application FastAPI sur Heroku vous pourrez suivre ces
+liens:
+
+- https://towardsdatascience.com/how-to-deploy-your-fastapi-app-on-heroku-for-free-8d4271a4ab9
+- https://www.youtube.com/watch?v=pZ2qzeKsoKs&t=98s
+
+
+## Sources de données
+
+| Nom de fichier                        | lien de la Source                                       |
+|---------------------------------------|---------------------------------------------------------|
+| Fichiers de données de base du projet | https://www.kaggle.com/c/home-credit-default-risk/data  |
