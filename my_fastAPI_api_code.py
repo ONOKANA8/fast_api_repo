@@ -5,6 +5,7 @@ import joblib
 import pandas as pd
 from fastapi import FastAPI
 import streamlit as st
+import uvicorn
 
 # chargement du data_test
 
@@ -14,7 +15,7 @@ def data():
     data = pd.read_csv(path).drop("Unnamed: 0", axis=1)
 
     # chargement du modèle entrainé
-    path_ = "fichier_api/joblib_lgbm0_Model.pkl"
+    path_ = "fichier_api/joblib_lgbm_beta_3_Model.pkl"
     model = joblib.load(path_)
 
     # complétion de data_test avec score, class_bin et class_cat
@@ -50,3 +51,4 @@ async def credit(ID: int):
         data_id = data()[data()["SK_ID_CURR"] == ID]
 
         return [{"score": data_id.score.values[0]}, {"Demande de crédit": data_id.class_cat.values[0]}]
+
