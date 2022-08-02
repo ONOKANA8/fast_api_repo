@@ -1,3 +1,5 @@
+![FastAPI](https://d3uyj2gj5wa63n.cloudfront.net/wp-content/uploads/2021/02/fastapi-logo.png)
+
 # FastAPI tutoriel 
 
 Bonjour :wave:, et bienvenue dans ce projet de construction d'api:  **FastAPI**.
@@ -5,12 +7,31 @@ Bonjour :wave:, et bienvenue dans ce projet de construction d'api:  **FastAPI**.
 Il s'agit ici d"une description des fichiers de ce projet dans le but d'une meilleur compréhension 
 de leur utilisation.
 
+
+Ce travail intervient dans un contexte précis et une problématique particulières
+
+En effet, il s'agit d'une société financière, **Prêt à dépenser** qui propose des crédits à la consommation pour des
+personnes ayant peu ou pas du tout d'historique de prêt. Le jeu de données mise à notre disposition pour ce projet est
+disponible sur Kaggle (Voir source des données au bas de page).
+
+
+## Notre mission 
+
+- Mise en oeuvre d'un outil de **"scoring crédit"** pour calculer la probabilité de défaut de paiement de chaque client
+   (Développement d'un modèle de classification);
+- S'assurer de comprendre le modèle par une interprétabilité de ce dernier afin de garder une 
+  transparence sur les prises de décision d'octroi de crédit;
+- Développement d'une API capable de ressortir le défaut de paiement ainsi que la décision du modèle
+- Développement d'un dashboard interactif utile pour les chargés de clients et aussi pour les clients.
+
+
+## Pour ce répertoire 
 Vous trouverez ici la description des fichiers contenus dans le dossier **fichier_api** et leur différentes utilités.
 
-| Nom fichier              | Description                                                                                                                                                                                                                                                                                                      |
-|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| joblib_lgbm0_Model.pkl   | C'est le modèle prédctif conçu en interne pour prédire les défauts de paiement obtenu après sauvegarde via la librairie joblib                                                                                                                                                                                   |                                                                                                                                                                                                                                |
-| fichier-test1000-api.csv | C'est un fichier test de 1000 individus issue de données initiales de jeu de test ayant subi l'étape de preprocessing. il contient les variables indépendantes.                                                                                                                                                  |                                                                                                                                |
+| Nom fichier               | Description                                                                                                                                                                                                                                                                                                       |
+|:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| joblib_lgbm0_Model.pkl    | C'est le modèle prédctif conçu en interne pour prédire les défauts de paiement obtenu après sauvegarde via la librairie joblib                                                                                                                                                                                    |                                                                                                                                                                                                                                |
+| fichier-test1000-api.csv  | C'est un fichier test de 1000 individus issue de données initiales de jeu de test ayant subi l'étape de preprocessing. il contient les variables indépendantes.                                                                                                                                                   |                                                                                                                                |
 
 
 ## Installation de FastAPI
@@ -39,9 +60,12 @@ app = FastAPI()
 Avec PyCharm par exemple, vous pouvez l'exécuter en local en tapant la commande : 
 
 -en local : ajouter à la suite du code API
-                        if __name__ == "__main__":
-                            uvicorn.run(app, host='127.0.0.7', port=8000)
-            exécuter tout simplement avec **run**
+```code
+if __name__ == "__main__":
+    uvicorn.run(app, host='127.0.0.7', port=8000)
+```
+
+exécuter tout simplement avec **run**
 
 
 ## Déploiement sur Heroku
