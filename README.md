@@ -78,7 +78,7 @@ Pour un déploiement efficace sur le cloud Heroku, d'autres fichiers sont réqui
 
 | Nom fichier      | Description                                                                                                                                                                                                                          |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| requirements.txt | Fichier contenant toutes les librairies utile. au bon fonctionnement de l'application                                                                                                                                                |                                                                                                                                                          |
+| requirements.txt | Fichier contenant toutes les librairies utiles au bon fonctionnement de l'application                                                                                                                                                |                                                                                                                                                          |
 | Procfile         | Procfile spécifie à peu près les commandes une fois que vous exécutez l'application sur Heroku. Nous spécifions le fichier shell que nous avons créé ci-dessus, puis appelons Streamlit pour exécuter my_streamlit_dashboard_code.py |
 
 Pour étoffer vos connaissances dans le déploiement de votre application FastAPI sur Heroku vous pourrez suivre ces
