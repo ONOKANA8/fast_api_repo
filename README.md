@@ -20,7 +20,7 @@ disponible sur Kaggle (Voir la source des données au bas de page).
 - Mise en oeuvre d'un outil de **"scoring crédit"** pour calculer la probabilité de défaut de paiement de chaque client
    (Développement d'un modèle de classification);
 - S'assurer de comprendre le modèle par une interprétabilité de ce dernier afin de garder une 
-  transparence sur les prises de décision d'octroi de crédit conformément aux lois « Informatique & Liberté » et « RGPD »
+  transparence sur les prises de décision d'octroi de crédit conformément aux articles 12, 13 et 14 du « RGPD »
 - Développement d'une API capable de ressortir le défaut de paiement ainsi que la décision du modèle
 - Développement d'un dashboard interactif utile pour les chargés de clients et aussi pour les clients.
 
